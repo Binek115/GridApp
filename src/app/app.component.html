@@ -1,3 +1,15 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="h-full flex flex-col">
+  <mat-toolbar class="flex-shrink-0">
+    <div class="overflow-x-auto overflow-y-hidden">
+      <a *ngFor="let navigation of navigations"
+         [routerLink]="navigation.link"
+         routerLinkActive="underline"
+         mat-button>
+        {{ navigation.name }}
+      </a>
+    </div>
+  </mat-toolbar>
+  <div class="overflow-auto p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

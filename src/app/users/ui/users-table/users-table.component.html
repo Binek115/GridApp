@@ -1,0 +1,33 @@
+<mat-table [dataSource]="dataSource"
+           matSort
+           matSortDisableClear
+           matSortActive="name"
+           matSortDirection="asc"
+           class="overflow-auto">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef
+                     mat-sort-header> Nazwa </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef
+                     mat-sort-header> Email </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.email }} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="role">
+    <mat-header-cell *matHeaderCellDef
+                     mat-sort-header> Rola </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.role }} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="password">
+    <mat-header-cell *matHeaderCellDef
+                     mat-sort-header> Hasło </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.password }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnNames"
+           class="cursor-pointer hover:bg-gray-200"
+           (dblclick)="dblClickRow.emit(row)"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[10, 25, 50]"></mat-paginator>

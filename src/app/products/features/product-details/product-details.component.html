@@ -1,0 +1,20 @@
+<div class="flex flex-col items-start gap-4">
+  <a mat-raised-button
+     appBackButton>Cofnij</a>
+  <ng-container *ngIf="product$ | async as product; else loader">
+    <div class="grid grid-cols-2">
+      <div>
+        <h1>{{ product.title }}</h1>
+        <h2>Cena: {{ product.price | currency }}</h2>
+        <h3>Kategoria: {{ product.category }}</h3>
+        <p>Ocena: {{ product.rating.rate }} według {{ product.rating.count }} opinii</p>
+        <p>Opis: {{ product.description }}</p>
+      </div>
+      <img [src]="product.image"
+           alt="Image of product" />
+    </div>
+  </ng-container>
+  <ng-template #loader>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

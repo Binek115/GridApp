@@ -1,0 +1,15 @@
+<a [routerLink]="['details', product.id]">
+  <mat-card class="h-full hover:opacity-60">
+    <mat-card-header>
+      <mat-card-title>{{ product.title }}</mat-card-title>
+      <mat-card-subtitle>
+        Cena: {{ product.price | currency }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img [src]="product.image"
+           mat-card-lg-image
+           alt="Image of product" />
+    </mat-card-content>
+  </mat-card>
+</a>

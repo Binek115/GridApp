@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Edycja użytkownika</h2>
+<div mat-dialog-content>
+  <p>
+    <mat-form-field>
+      <mat-label>Nazwa</mat-label>
+      <input matInput
+             [(ngModel)]="user.name" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput
+             [(ngModel)]="user.email" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Rola</mat-label>
+      <input matInput
+             [(ngModel)]="user.role" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Hasło</mat-label>
+      <input matInput
+             [(ngModel)]="user.password" />
+    </mat-form-field>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button
+          [mat-dialog-close]="null">Anuluj</button>
+  <button mat-button
+          [mat-dialog-close]="user">Zapisz</button>
+</div>

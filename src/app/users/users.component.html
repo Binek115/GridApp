@@ -1,0 +1,18 @@
+<ng-container *ngIf="usersStore.state$ | async as state">
+  <ng-container [ngSwitch]="state.loadingState">
+    <mat-spinner *ngSwitchCase="'loading'"></mat-spinner>
+    <ng-container *ngSwitchCase="'loaded'">
+      <mat-form-field>
+        <mat-label>Szukaj</mat-label>
+        <input matInput
+               [value]="state.filter"
+               (input)="updateFilter($event)" />
+      </mat-form-field>
+      <app-users-table [data]="state.users"
+                       [filter]="state.filter"
+                       (dblClickRow)="usersStore.editUser($event)">
+      </app-users-table>
+    </ng-container>
+    <ng-container *ngSwitchCase="'error'">Wystąpił problem z załadowaniem listy produktów</ng-container>
+  </ng-container>
+</ng-container>

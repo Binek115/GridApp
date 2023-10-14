@@ -1,0 +1,13 @@
+<ng-container *ngIf="state$ | async as state">
+  <ng-container [ngSwitch]="state.loadingState">
+    <mat-spinner *ngSwitchCase="'loading'"></mat-spinner>
+    <ng-container *ngSwitchCase="'loaded'">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <app-product-tile *ngFor="let product of state.products"
+                          [product]="product">
+        </app-product-tile>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'error'">Wystąpił problem z załadowaniem listy produktów</ng-container>
+  </ng-container>
+</ng-container>
